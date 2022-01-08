@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react"
+import "./App.css"
+
+import cx from "classnames"
 
 function App() {
+  const [toggleState, setToggleState] = useState(false)
+
+  const handleToggleState = () => {
+    setToggleState(!toggleState)
+  }
+
+  const toggleClasses = cx({
+    state: true,
+    on: toggleState,
+    off: !toggleState,
+  })
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className={toggleClasses}>
+        {toggleState ? <p>is On</p> : <p>is Off</p>}
+      </div>
+
+      <button onClick={handleToggleState}>
+        Toggle {toggleState ? "off" : "on"}
+      </button>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
