@@ -1,5 +1,10 @@
 # Getting Started with this project
 
+## Clone this repo
+
+### git clone https://github.com/muriukialex/classnames-intro.git
+
+### cd classnames-intro
 
 ## Available Scripts
 
